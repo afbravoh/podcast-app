@@ -1,0 +1,46 @@
+.podcast-container {
+    display: flex;
+    border: 1px solid red;
+}
+
+.banner {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /*Esto recortará cualquier parte de la imagen que se salga del banner*/
+}
+
+.img-podcast {
+    border-radius: 8px;
+    margin-right: 10px;
+
+}
+
+.podcast-information {
+    display: flex;
+    align-items: center;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*Esto hace que la imagen cubra todo el banner manteniendo su aspecto original*/
+}
+
+.title {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+.description-text {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.3);
+}
+table td {
+    font-weight: 500;
+    font-size: 16px;
+}
