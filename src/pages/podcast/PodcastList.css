@@ -1,0 +1,98 @@
+.header {
+  background-color: rgba(26, 26, 26, 1);
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  align-items: center;
+  padding: 10px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: #1A1A1A;
+}
+
+.search-input {
+  height: 30px;
+  width: 420px;
+  border-radius: 5px;
+  padding-left: 40px;
+  padding-right: 20px;
+  background-color: #1A1A1A;
+  border: none;
+  color: white;
+}
+
+.search-button {
+  position: relative;
+  right: 35px;
+  border: none;
+  color: white;
+}
+
+.fa-search {
+  font-size: 20px;
+}
+
+/* el resto del CSS */
+
+.selector-container {
+  display: flex;
+  background-color: rgba(26, 26, 26, 1);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.message-container {
+  height: 100vh;
+}
+.message-search {
+  color: white;
+}
+
+.table-container {
+  width: 50%;
+  background-color: rgba(26, 26, 26, 1);
+}
+
+.img-podcast {
+  border-radius: 8px;
+  margin-right: 10px;
+
+}
+
+.podcast-information {
+  display: flex;
+  align-items: center;
+}
+
+.selector {
+  width: 160px; /* ajusta según el ancho de tu barra de búsqueda */
+}
+
+table th {
+  text-align: left;
+  color: #FFFFFF;
+}
+
+table td {
+  text-align: left;
+  color: #FFFFFF;
+}
+
+table tr {
+  height: 80px;
+}
+
+.description-text {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+

@@ -1,15 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Podcast from "./pages/podcast/Podcast";
+import Layout from "./components/layout/Layout";
+import PodcastList from "./pages/podcast/PodcastList";
+import Search from "./components/layout/Search";
+import Header from "./components/header/Header";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <PodcastList/>,
+    },
+    {
+        path: "/podcast/:podcastId",
+        element: <Podcast/>,
+    }]);
+
 root.render(
   <React.StrictMode>
-    <App />
+      <Search>
+          <Header/>
+          <Layout>
+              <RouterProvider router={router} />
+          </Layout>
+      </Search>
   </React.StrictMode>
 );
 
