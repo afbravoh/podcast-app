@@ -1,5 +1,5 @@
 .header {
-  background-color: black;
+  background-color: rgba(26, 26, 26, 1);
   display: flex;
   justify-content: center;
   height: 60px;
@@ -42,14 +42,22 @@
 
 .selector-container {
   display: flex;
-  background-color: black;
+  background-color: rgba(26, 26, 26, 1);
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.message-container {
+  height: 100vh;
+}
+.message-search {
+  color: white;
 }
 
 .table-container {
   width: 50%;
-  background-color: black;
+  background-color: rgba(26, 26, 26, 1);
 }
 
 .img-podcast {
@@ -87,20 +95,4 @@ table tr {
   color: rgba(255, 255, 255, 0.3);
 }
 
-.audio-bar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-audio {
-  width: 80%;
-  outline: none;
-}
 
