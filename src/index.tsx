@@ -6,6 +6,8 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Podcast from "./components/podcast/Podcast";
 import Layout from "./components/layout/Layout";
 import PodcastList from "./components/podcast/PodcastList";
+import Search from "./components/layout/Search";
+import Header from "./components/header/Header";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,9 +25,12 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-      <Layout>
-          <RouterProvider router={router} />
-      </Layout>
+      <Search>
+          <Header/>
+          <Layout>
+              <RouterProvider router={router} />
+          </Layout>
+      </Search>
   </React.StrictMode>
 );
 

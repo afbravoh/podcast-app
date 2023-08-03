@@ -1,15 +1,15 @@
 .podcast-container {
     display: flex;
-    border: 1px solid red;
 }
 
 .banner {
+    text-align: center;
     width: 100%;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /*Esto recortará cualquier parte de la imagen que se salga del banner*/
+    overflow: hidden;
 }
 
 .img-podcast {
@@ -24,16 +24,50 @@
 }
 
 .banner-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /*Esto hace que la imagen cubra todo el banner manteniendo su aspecto original*/
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.icon-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .title {
+    flex: 1;
     text-align: center;
     font-size: 32px;
-    margin-top: 20px;
+    color: white;
+    white-space: nowrap;
 }
+
+.selector {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(26, 26, 26, 1);
+    color: white;
+    border: none;
+}
+
 
 .description-text {
     font-weight: 500;

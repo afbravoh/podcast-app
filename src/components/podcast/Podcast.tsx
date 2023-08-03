@@ -1,22 +1,25 @@
 import React, {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {parseString} from "xml2js"
-import {PlayArrow} from "@mui/icons-material";
+import {Pause, PlayArrow, PlayArrowRounded, Search} from "@mui/icons-material";
 import AudioContext from "../../context/AudioContext";
+import {IDetails, IEpisode, IPodcast} from "../../interfaces/IPodcast";
 import './Podcast.css';
+
 
 const Podcast = () => {
 
     const { podcastId } = useParams();
-    const { audioSrc, setAudioSrc } = useContext(AudioContext);
-    const [podcast, setPodcast] = useState<any>();
-    const [details, setDetails] = useState<any>()
+    const { setEpisode, setEpisodes, episodes, episode } = useContext(AudioContext);
+    const currentEpisode:IEpisode = episode;
+    const [podcast, setPodcast] = useState<IPodcast>();
+    const [details, setDetails] = useState<IDetails>()
 
     useEffect(() => {
         if (!podcastId) return
         const url = `https://itunes.apple.com/lookup?id=${podcastId}`;
         const url2 = `https://cors-anywhere.herokuapp.com/${url}`
-        fetch(url2)
+        fetch(url)
             .then(response => response.json())
             .then(data => {
                 const [podcast] = data.results;
@@ -34,34 +37,49 @@ const Podcast = () => {
                 .then(response => response.text())
                 .then(data => {
                     parseString(data, (err: any, result: any) => {
-                        const [details] = result['rss']['channel'];
+                        const [details] = result?.['rss']?.['channel'];
                         setDetails(details)
+                        setEpisodes(details.item);
+                        if (details.item.length > 0){
+                            const [firstEpisode] = details.item!;
+                            setEpisode(firstEpisode)
+                        }
                     })
-
                 })
                 .catch(reason => console.error(reason));
         }
     }, [podcast]);
 
-
-    // ahora puedes usar audioSrc y setAudioSrc en este componente
-    // por ejemplo, podrías tener una función que cambie la pista de audio cuando se haga clic en un botón
-    const handleClick = (e: any, enclosure: any) => {
-        const [enclosureData] = enclosure;
-        const source = enclosureData["$"]["url"];
-        console.log("source:" , source);
-        setAudioSrc(source);
+    const handleClick = (e: any, episode: IEpisode) => {
+        setEpisode(episode);
     }
+
+    const onPlayPodcast = () => {
+        if (episodes.length > 0 && details){
+            const [firstEpisode] = details.item!;
+            setEpisode(firstEpisode)
+        }
+    };
 
     return (
             <div>
-                <div className="banner">
-                    {podcast && <img src={podcast?.artworkUrl600} alt="Banner" className="banner-image"/>}
-                </div>
-                <h1 className="title">
-                    {podcast?.collectionName}
-                </h1>
                 <section className="selector-container">
+                    <section className="banner">
+                        {podcast && <img src={podcast?.artworkUrl600} alt="Banner" className="banner-image"/>}
+                    </section>
+                    <div className="title-container">
+                        <div className="icon-container">
+                            <button className="circular-button">
+                                <PlayArrowRounded onClick={onPlayPodcast}/>
+                            </button>
+                        </div>
+                        <div className="title">
+                            {podcast?.collectionName}
+                        </div>
+                        <select className="selector" placeholder="Sort By">
+                            <option>Sort By</option>
+                        </select>
+                    </div>
                     <table className="table-container">
                         <thead>
                         <tr>
@@ -73,34 +91,39 @@ const Podcast = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {details?.item?.length > 0 && details?.item?.map((item: any, index:number) => (
-                            <tr key={index} onClick={(e:any) => handleClick(e,item.enclosure)}>
+                        {details && details?.item?.length > 0 && details?.item?.map((episode: IEpisode, index:number) => (
+                            <tr key={index} onClick={(e:any) => handleClick(e,episode)}>
                                 <td>
-                                    <PlayArrow/>
+                                    {currentEpisode.title[0] === episode.title[0] ? <Pause/> :<PlayArrow/>}
                                 </td>
                                 <td>
                                     <div className="podcast-information">
                                         <img
                                             className="img-podcast"
-                                            src={item?.['itunes:image']?.[0]?.['$']?.['href']}
+                                            src={episode?.['itunes:image']?.[0]?.['$']?.['href']}
                                             alt='podcastImage'
                                             style={{height: '40px', width:'40px'}}
                                         />
                                         <div>
-                                            <b> {item?.title[0]}</b>
+                                            <b> {episode?.title[0]}</b>
                                             <br/>
-                                            <div className='description-text'>{item?.['itunes:author']?.[0]}</div>
+                                            <div className='description-text'>{episode?.['itunes:author']?.[0]}</div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <div className="description-text" dangerouslySetInnerHTML={{__html: item?.["itunes:summary"]?.[0] ?? '' }}/>
+                                    <div
+                                        className="description-text"
+                                        dangerouslySetInnerHTML={{__html: episode?.["itunes:summary"]?.[0] ?? '' }}
+                                    />
                                 </td>
                                 <td>
-                                    <div className="description-text">{item?.['pubDate']?.[0]} </div>
+                                    <div className="description-text">
+                                        {episode?.['pubDate']?.[0]}
+                                    </div>
                                 </td>
                                 <td>
-                                    <div className="description-text">{item?.['itunes:duration']?.[0]}</div>
+                                    <div className="description-text">{episode?.['itunes:duration']?.[0]}</div>
                                 </td>
                             </tr>
                         ))}

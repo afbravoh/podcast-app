@@ -1,0 +1,136 @@
+.name-episode {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.description-episode {
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.bar-container {
+    display: flex;
+}
+
+.podcast-container {
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+
+.detail-episode {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.circular-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(92, 103, 222, 1);
+    color: white;
+    border: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circular-secondary-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(26, 26, 26, 1);
+    color: white;
+    border: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-bar {
+    position: sticky;
+    bottom: 0;
+    height: 110px;
+    background-color: rgba(26, 26, 26, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.range-episode {
+    width: 419px;
+}
+
+.range-volume {
+    width: 210px;
+}
+
+audio {
+    width: 80%;
+    outline: none;
+}
+
+.svg-color {
+    height: 24px;
+    width: 24px;
+    color: white;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 15px;
+    background: #ccc;
+    border-radius: 16px;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 15px;
+    background: #ccc;
+    border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: -407px 0 0 400px white;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border: 1px solid white;
+    box-shadow: white;
+}

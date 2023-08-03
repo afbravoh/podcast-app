@@ -1,14 +1,27 @@
 import React from 'react';
+import {IEpisode} from "../interfaces/IPodcast";
 
 type AudioContextType = {
-    audioSrc: string;
-    setAudioSrc: React.Dispatch<React.SetStateAction<string>>;
+    episode: IEpisode;
+    setEpisode: React.Dispatch<React.SetStateAction<IEpisode>>;
+    episodes: IEpisode[];
+    setEpisodes: React.Dispatch<React.SetStateAction<IEpisode[]>>;
 };
 
 const AudioContext = React.createContext<AudioContextType>(
     {
-        audioSrc: '',
-        setAudioSrc: () => {},
+        episode: {
+            "itunes:author":[''],
+            "itunes:image": [{"$": {href: ''}}],
+            enclosure: [{"$":{ url: ''}}],
+            title: [''],
+            pubDate: [''],
+            "itunes:duration": [''],
+            "itunes:summary": ['']
+        },
+        setEpisode: () => {},
+        episodes: [],
+        setEpisodes: () => {}
     }
 );
 

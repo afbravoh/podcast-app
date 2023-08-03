@@ -1,13 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import './App.css';
+import React, {useContext, useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import {PlayArrow} from '@mui/icons-material';
 import Header from "../header/Header";
+import {IPodcast} from "../../interfaces/IPodcast";
+import './PodcastList.css';
+import SearchContext from "../../context/SearchContext";
 
 const PodcastList = () => {
 
     const navigate = useNavigate();
-    const [podcasts, setPodcasts] = useState<any[]>([]);
+    //const [podcasts, setPodcasts] = useState<IPodcast[]>([]);
+
+    const { podcasts } = useContext(SearchContext);
     const [search, setSearch] = useState<string>('Musica');
 
     const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
@@ -19,7 +23,7 @@ const PodcastList = () => {
         console.log(search);
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         // const originalUrl = "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json";
         const url = `https://itunes.apple.com/search?term=${search}&media=podcast&entity=podcast&limit=30`;
         if (search !== '') {
@@ -30,16 +34,11 @@ const PodcastList = () => {
                 })
                 .catch(reason => console.error(reason));
         }
+    }, [search]);*/
 
-    }, [search]);
 
     return (
-        <div className="App">
-            <Header
-                search={search}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-            />
+        <div>
             <section className="selector-container">
                 <table className="table-container">
                     <thead>
