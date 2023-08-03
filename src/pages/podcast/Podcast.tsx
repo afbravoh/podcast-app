@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {parseString} from "xml2js"
-import {Pause, PlayArrow, PlayArrowRounded, Search} from "@mui/icons-material";
+import {Pause, PlayArrow, PlayArrowRounded} from "@mui/icons-material";
 import AudioContext from "../../context/AudioContext";
 import {IDetails, IEpisode, IPodcast} from "../../interfaces/IPodcast";
 import './Podcast.css';

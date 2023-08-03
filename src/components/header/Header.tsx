@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {ArrowBackIos, BackHand, Replay, Search} from "@mui/icons-material";
+import {ArrowBackIos, Search} from "@mui/icons-material";
 import SearchContext from "../../context/SearchContext";
 import "./Header.css"
 
