@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
-import {Search} from "@mui/icons-material";
+import {ArrowBackIos, BackHand, Replay, Search} from "@mui/icons-material";
 import SearchContext from "../../context/SearchContext";
+import "./Header.css"
 
 const Header = () => {
 
@@ -18,12 +19,18 @@ const Header = () => {
         performSearch(search);
     };
 
+
     return (
         <>
             <header className="header">
                 <div className="search-container">
+                    <button className="back-icon">
+                        <ArrowBackIos className="style-icon" onClick={() => window.history.go(-1)}/>
+                    </button>
                     <form action="" onSubmit={handleSubmit}>
-                        <Search className="search-button" onClick={handleSubmit}/>
+                        <button className="search-icon">
+                            <Search className="style-icon" onClick={handleSubmit}/>
+                        </button>
                         <input
                             type="text"
                             placeholder="Podcast"

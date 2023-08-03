@@ -69,7 +69,7 @@ const Podcast = () => {
                     </section>
                     <div className="title-container">
                         <div className="icon-container">
-                            <button className="circular-button">
+                            <button className="circular-button-main">
                                 <PlayArrowRounded onClick={onPlayPodcast}/>
                             </button>
                         </div>
@@ -119,7 +119,7 @@ const Podcast = () => {
                                 </td>
                                 <td>
                                     <div className="description-text">
-                                        {episode?.['pubDate']?.[0]}
+                                        {new Date(episode?.['pubDate']?.[0]).toLocaleDateString()}
                                     </div>
                                 </td>
                                 <td>

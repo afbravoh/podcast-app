@@ -48,6 +48,13 @@
   flex-direction: column;
 }
 
+.message-container {
+  height: 100vh;
+}
+.message-search {
+  color: white;
+}
+
 .table-container {
   width: 50%;
   background-color: rgba(26, 26, 26, 1);
