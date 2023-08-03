@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import Podcast from "./components/podcast/Podcast";
+import Podcast from "./pages/podcast/Podcast";
 import Layout from "./components/layout/Layout";
-import PodcastList from "./components/podcast/PodcastList";
+import PodcastList from "./pages/podcast/PodcastList";
 import Search from "./components/layout/Search";
 import Header from "./components/header/Header";
 

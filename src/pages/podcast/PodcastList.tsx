@@ -14,7 +14,9 @@ const PodcastList = () => {
             <section className="selector-container">
                 {podcasts.length === 0 &&
                     <div className="message-container">
-                        <h2 className="message-search">Type to search a podcast and click on the search Icon</h2>
+                        <h2 className="message-search">
+                           Escribe para buscar un podcast; Enter o click en el icono de busqueda.
+                        </h2>
                     </div>
                 }
                 {podcasts.length > 0 &&

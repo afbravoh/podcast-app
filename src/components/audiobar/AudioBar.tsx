@@ -12,7 +12,7 @@ import {
 import AudioContext from "../../context/AudioContext";
 import {toHoursAndMinutes} from "../../util/util";
 import "./AudioBar.css"
-import "../podcast/PodcastList.css"
+import "../../pages/podcast/PodcastList.css"
 
 interface IAudioBar {
     episode: IEpisode;

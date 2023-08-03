@@ -19,7 +19,7 @@ const Podcast = () => {
         if (!podcastId) return
         const url = `https://itunes.apple.com/lookup?id=${podcastId}`;
         const url2 = `https://cors-anywhere.herokuapp.com/${url}`
-        fetch(url)
+        fetch(url2)
             .then(response => response.json())
             .then(data => {
                 const [podcast] = data.results;
